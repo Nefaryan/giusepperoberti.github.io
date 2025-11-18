@@ -227,7 +227,8 @@
     }
 
     .grid-2 {
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: stretch;
     }
 
     .card {
@@ -236,6 +237,7 @@
       background: rgba(15,23,42,0.88);
       padding: 1rem 1.1rem;
       box-shadow: 0 12px 28px rgba(15,23,42,0.6);
+      min-height: 100%;
     }
 
     .card-header {
@@ -373,7 +375,9 @@
           </div>
           <div class="hero-metric">
             <div class="hero-metric-label">Progetto online</div>
-            <div class="hero-metric-value"><a href="https://fantalol.com" target="_blank" rel="noopener noreferrer">FantaLOL.com</a></div>
+            <div class="hero-metric-value">
+              <a href="https://fantalol.com" target="_blank" rel="noopener noreferrer">FantaLOL.com</a>
+            </div>
           </div>
         </div>
       </aside>
@@ -383,59 +387,66 @@
       <h2>Progetti</h2>
       <p class="section-subtitle">Una selezione di progetti personali e professionali.</p>
       <div class="grid grid-2">
-       <article class="card">
-  <div class="card-header">
-    <div>
-      <div class="card-title">FantaLOL – Piattaforma Fantasy</div>
-      <div class="card-meta">
-        <a href="https://fantalol.com" target="_blank" rel="noopener noreferrer">https://fantalol.com</a>
-      </div>
-    </div>
-    <span class="card-tag">Progetto personale</span>
-  </div>
-  <div class="card-body">
-    FantaLOL è una web app per gioco fantasy creata utilizzando <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a>,
-    un tool di sviluppo assistito da AI. Ho definito la logica di gioco e i requisiti funzionali e ho iterato con lo strumento
-    per ottenere un’app funzionante e pubblicata online.
-    <ul>
-      <li>Definizione delle regole di gioco, dei flussi utente e delle principali funzionalità.</li>
-      <li>Utilizzo di Lovable per generare, adattare e rifinire il codice dell’applicazione.</li>
-      <li>Test dell’applicazione e miglioramento iterativo dell’esperienza utente.</li>
-      <li>Deploy e gestione della versione online accessibile agli utenti.</li>
-    </ul>
-    <div class="pill-row">
-      <span class="pill">Lovable (AI dev tool)</span>
-      <span class="pill">Web App</span>
-      <span class="pill">Progetto personale</span>
-    </div>
-  </div>
-</article>
-
+        <!-- FantaLOL -->
         <article class="card">
           <div class="card-header">
             <div>
-              <div class="card-title">Gestionale PA – GolemNet</div>
-              <div class="card-meta">Applicativo per Pubblica Amministrazione</div>
+              <div class="card-title">FantaLOL – Piattaforma Fantasy</div>
+              <div class="card-meta">
+                <a href="https://fantalol.com" target="_blank" rel="noopener noreferrer">https://fantalol.com</a>
+              </div>
             </div>
-            <span class="card-tag">Java · Spring</span>
+            <span class="card-tag">Progetto personale</span>
           </div>
           <div class="card-body">
-            Sviluppo di funzionalità back-end per un gestionale destinato alla Pubblica Amministrazione.
+            FantaLOL è una web app per un gioco fantasy creata utilizzando
+            <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a>,
+            un tool di sviluppo assistito da AI. Ho definito la logica di gioco, i flussi utente e i requisiti funzionali
+            e ho iterato con lo strumento per ottenere un’app funzionante e pubblicata online.
             <ul>
-              <li>Implementazione di servizi in Java con Spring Boot e Jmix.</li>
-              <li>Gestione di entità e repository con JPA/Hibernate.</li>
-              <li>Integrazione con database PostgreSQL.</li>
-              <li>Collaborazione tramite Git/GitHub e uso di Docker.</li>
+              <li>Definizione delle regole di gioco, dei flussi utente e delle principali funzionalità.</li>
+              <li>Utilizzo di Lovable per generare, adattare e rifinire il codice dell’applicazione.</li>
+              <li>Test dell’applicazione e miglioramento iterativo dell’esperienza utente.</li>
+              <li>Deploy e gestione della versione online accessibile agli utenti.</li>
             </ul>
             <div class="pill-row">
-              <span class="pill">Java</span>
-              <span class="pill">Spring Boot</span>
-              <span class="pill">PostgreSQL</span>
-              <span class="pill">Docker</span>
+              <span class="pill">Lovable (AI dev tool)</span>
+              <span class="pill">Web App</span>
+              <span class="pill">Progetto personale</span>
             </div>
           </div>
         </article>
 
+        <!-- GolemNet progetto -->
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Sistema di conservazione documentale PA – GolemNet</div>
+              <div class="card-meta">Migrazione da Delphi a Java 17 · integrazione Aruba DocFly</div>
+            </div>
+            <span class="card-tag">Java 17 · Document Management</span>
+          </div>
+          <div class="card-body">
+            Applicativo per la Pubblica Amministrazione dedicato alla
+            <strong>conservazione digitale dei documenti</strong>,
+            oggetto di una migrazione tecnologica da un sistema legacy in Delphi a una nuova soluzione in Java 17,
+            integrata con i servizi di conservazione documentale di <strong>Aruba DocFly</strong>.
+            <ul>
+              <li>Partecipazione al refactoring e alla riscrittura di funzionalità chiave da Delphi a Java 17.</li>
+              <li>Integrazione con i servizi di conservazione documentale Aruba DocFly tramite API.</li>
+              <li>Gestione dei flussi di invio e archiviazione dei documenti verso il sistema di conservazione.</li>
+              <li>Collaborazione con il team per garantire continuità del servizio durante la migrazione.</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">Java 17</span>
+              <span class="pill">Migrazione da legacy</span>
+              <span class="pill">Conservazione documentale</span>
+              <span class="pill">Aruba DocFly</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- eWork -->
         <article class="card">
           <div class="card-header">
             <div>
@@ -448,7 +459,8 @@
             Applicazione per la gestione di ordini di food delivery sviluppata in C# e ASP.NET MVC.
             <ul>
               <li>Implementazione logica di gestione ordini, menu e utenti.</li>
-              <li>Progettazione e gestione DB SQL Server con Entity Framework.</li>
+              <li>Progettazione e gestione del database con SQL Server.</li>
+              <li>Accesso ai dati tramite Entity Framework.</li>
               <li>Collaborazione in team seguendo metodologie agili.</li>
             </ul>
             <div class="pill-row">
@@ -459,6 +471,7 @@
           </div>
         </article>
 
+        <!-- NTT DATA -->
         <article class="card">
           <div class="card-header">
             <div>
@@ -470,7 +483,7 @@
           <div class="card-body">
             Sviluppo di componenti full stack per applicazioni enterprise interne.
             <ul>
-              <li>Backend in Java (Spring, Java EE) e C# (.NET, ASP.NET).</li>
+              <li>Backend in Java (Spring, Java EE) e C# (.NET, ASP.NET, ASP.NET MVC).</li>
               <li>Front-end con HTML, CSS, JavaScript e AngularJS.</li>
               <li>Query e modellazione dati con MySQL e SQL Server.</li>
               <li>Utilizzo di AWS e metodologie agili / a cascata.</li>
@@ -498,8 +511,9 @@
           </div>
           <div class="card-body">
             <ul>
-              <li>Sviluppo di applicativi back-end per la Pubblica Amministrazione con Java, Spring Boot e Jmix.</li>
-              <li>Gestione persistenza dati con JPA/Hibernate e PostgreSQL.</li>
+              <li>Sviluppo e migrazione di un sistema di conservazione documentale per la PA da Delphi a Java 17 con Spring Boot e Jmix.</li>
+              <li>Integrazione con i servizi di conservazione documentale Aruba DocFly tramite API.</li>
+              <li>Gestione della persistenza dati con JPA/Hibernate e PostgreSQL.</li>
               <li>Versionamento del codice con Git/GitHub e utilizzo di Docker/Kubernetes.</li>
               <li>Partecipazione alle attività di analisi, stima e documentazione tecnica.</li>
             </ul>
@@ -518,6 +532,7 @@
               <li>Sviluppo di una web app di food delivery in C# e ASP.NET MVC.</li>
               <li>Progettazione e gestione del database con SQL Server.</li>
               <li>Accesso ai dati tramite Entity Framework.</li>
+              <li>Collaborazione in team seguendo metodologie agili.</li>
             </ul>
           </div>
         </article>
@@ -534,6 +549,7 @@
               <li>Sviluppo backend in Java (Spring, Java EE) e C# (ASP.NET, ASP.NET MVC).</li>
               <li>Implementazione di servizi REST e interfacce web con HTML, CSS, JavaScript, AngularJS.</li>
               <li>Interazione con database MySQL e SQL Server.</li>
+              <li>Partecipazione a progetti interni in contesto enterprise.</li>
             </ul>
           </div>
         </article>
@@ -550,8 +566,8 @@
               <li><strong>Linguaggi:</strong> Java, C#, SQL, JavaScript, Python (scripting / ML).</li>
               <li><strong>Framework:</strong> Spring / Spring Boot, Jmix, Java EE, .NET, ASP.NET, ASP.NET MVC, Web API, Entity Framework.</li>
               <li><strong>Web & DB:</strong> REST API, HTML, CSS, SQL Server, MySQL, PostgreSQL, MongoDB.</li>
-              <li><strong>DevOps & strumenti:</strong> Git, GitHub, Azure DevOps, Docker, Eclipse, Visual Studio, SSMS.</li>
-              <li><strong>Networking & Cybersecurity:</strong> TCP/IP, modello OSI, reti wireless, networking Cisco base, security basics, OSINT, SIEM/log analysis (base), MITRE ATT&CK.</li>
+              <li><strong>DevOps & strumenti:</strong> Git, GitHub, Azure DevOps, Docker, Eclipse, Visual Studio, SQL Server Management Studio.</li>
+              <li><strong>Networking & Cybersecurity:</strong> TCP/IP, modello OSI, reti wireless, networking Cisco base, concetti base di sicurezza, OSINT, SIEM/log analysis (base), MITRE ATT&CK.</li>
             </ul>
           </div>
         </article>
@@ -581,8 +597,8 @@
         <div class="card-body">
           <p><strong>Base:</strong> Castrovillari (CS), Italia</p>
           <p><strong>Email:</strong> <a href="mailto:giuseppe.roberti9950@gmail.com">giuseppe.roberti9950@gmail.com</a></p>
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giuseppe-roberti-a8b729243/" target="_blank" rel="noopener noreferrer">/giuseppe-roberti-a8b729243</a></p>
-          <p><strong>GitHub:</strong> <a href="https://github.com/Nefaryan" target="_blank" rel="noopener noreferrer">https://github.com/Nefaryan</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giuseppe-roberti-a8b729243/" target="_blank" rel="noopener noreferrer">Giuseppe Roberti</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/Nefaryan" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </div>
       </div>
     </section>
@@ -598,4 +614,3 @@
   </script>
 </body>
 </html>
-
