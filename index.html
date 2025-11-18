@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Portfolio – Giuseppe Roberti</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio di Giuseppe Roberti, Junior Software Developer (Java / .NET) appassionato di networking e cybersecurity." />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-soft: #111827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: #1f2937;
+      --radius: 16px;
+      --shadow: 0 18px 45px rgba(15,23,42,0.7);
+      --max-width: 960px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to right, rgba(15,23,42,0.95), rgba(15,23,42,0.85));
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #e0f2fe 0, #38bdf8 40%, #0ea5e9 70%);
+      box-shadow: 0 0 18px rgba(56,189,248,0.9);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 2rem;
+      align-items: center;
+      margin-top: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(56,189,248,0.4);
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      margin: 0.6rem 0 0.3rem;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 32rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.3rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      box-shadow: 0 12px 30px rgba(56,189,248,0.45);
+      font-weight: 600;
+    }
+
+    .btn-outline {
+      border-color: var(--border);
+      background: rgba(15,23,42,0.6);
+      color: var(--muted);
+    }
+
+    .btn span.icon {
+      font-size: 1.1rem;
+    }
+
+    .hero-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .hero-metric {
+      padding: 0.6rem 0.75rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148,163,184,0.3);
+      background: rgba(15,23,42,0.8);
+    }
+
+    .hero-metric-label {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .hero-metric-value {
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    section {
+      margin-bottom: 2.25rem;
+    }
+
+    section h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.88);
+      padding: 1rem 1.1rem;
+      box-shadow: 0 12px 28px rgba(15,23,42,0.6);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(15,118,110,0.2);
+      border: 1px solid rgba(45,212,191,0.5);
+      color: #a5f3fc;
+      white-space: nowrap;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .card-body ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.25rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      background: radial-gradient(circle at top, #020617 0, #000 80%);
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-dot"></div>
+        <span>Giuseppe Roberti</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Progetti</a>
+        <a href="#experience">Esperienza</a>
+        <a href="#skills">Competenze</a>
+        <a href="#contact">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div>
+        <div class="badge">Junior Software Developer · Java / .NET</div>
+        <h1>Ciao, sono Giuseppe.</h1>
+        <p class="hero-subtitle">
+          Sviluppatore software junior con esperienza in Java, Spring Boot, C#/.NET e ASP.NET.
+          Ho lavorato su applicazioni per la Pubblica Amministrazione, soluzioni web e progetti personali
+          come <strong>FantaLOL</strong>, affiancando allo sviluppo un interesse crescente per networking e cybersecurity.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">
+            <span class="icon">⭐</span>
+            <span>Guarda i miei progetti</span>
+          </a>
+          <a class="btn btn-outline" href="#contact">
+            <span class="icon">✉️</span>
+            <span>Contattami</span>
+          </a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="hero-card-title">Panoramica</div>
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <div class="hero-metric-label">Stack principale</div>
+            <div class="hero-metric-value">Java / Spring · C# / .NET</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-label">Focus</div>
+            <div class="hero-metric-value">Backend, API REST, DB</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-label">Interessi</div>
+            <div class="hero-metric-value">Networking · Cybersecurity</div>
+          </div>
+          <div class="hero-metric">
+            <div class="hero-metric-label">Progetto online</div>
+            <div class="hero-metric-value"><a href="https://fantalol.com" target="_blank" rel="noopener noreferrer">FantaLOL.com</a></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects">
+      <h2>Progetti</h2>
+      <p class="section-subtitle">Una selezione di progetti personali e professionali.</p>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">FantaLOL – Piattaforma Fantasy</div>
+              <div class="card-meta"><a href="https://fantalol.com" target="_blank" rel="noopener noreferrer">https://fantalol.com</a></div>
+            </div>
+            <span class="card-tag">Progetto personale</span>
+          </div>
+          <div class="card-body">
+            Applicazione web che permette agli utenti di creare e gestire una squadra fantasy e competere in classifiche online.
+            <ul>
+              <li>Progettazione del flusso di gioco e della struttura dati.</li>
+              <li>Sviluppo di front-end, back-end e integrazione con database.</li>
+              <li>Implementazione logica di punteggi, squadre e ranking.</li>
+              <li>Deploy e manutenzione del sito in produzione.</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">Web App</span>
+              <span class="pill">Backend</span>
+              <span class="pill">Database</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Gestionale PA – GolemNet</div>
+              <div class="card-meta">Applicativo per Pubblica Amministrazione</div>
+            </div>
+            <span class="card-tag">Java · Spring</span>
+          </div>
+          <div class="card-body">
+            Sviluppo di funzionalità back-end per un gestionale destinato alla Pubblica Amministrazione.
+            <ul>
+              <li>Implementazione di servizi in Java con Spring Boot e Jmix.</li>
+              <li>Gestione di entità e repository con JPA/Hibernate.</li>
+              <li>Integrazione con database PostgreSQL.</li>
+              <li>Collaborazione tramite Git/GitHub e uso di Docker.</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">Java</span>
+              <span class="pill">Spring Boot</span>
+              <span class="pill">PostgreSQL</span>
+              <span class="pill">Docker</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Food Delivery Web App</div>
+              <div class="card-meta">Progetto per eWork</div>
+            </div>
+            <span class="card-tag">C# · ASP.NET</span>
+          </div>
+          <div class="card-body">
+            Applicazione per la gestione di ordini di food delivery sviluppata in C# e ASP.NET MVC.
+            <ul>
+              <li>Implementazione logica di gestione ordini, menu e utenti.</li>
+              <li>Progettazione e gestione DB SQL Server con Entity Framework.</li>
+              <li>Collaborazione in team seguendo metodologie agili.</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">C#</span>
+              <span class="pill">ASP.NET MVC</span>
+              <span class="pill">SQL Server</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Moduli Full Stack – NTT DATA</div>
+              <div class="card-meta">Stage Full Stack Developer</div>
+            </div>
+            <span class="card-tag">Full Stack</span>
+          </div>
+          <div class="card-body">
+            Sviluppo di componenti full stack per applicazioni enterprise interne.
+            <ul>
+              <li>Backend in Java (Spring, Java EE) e C# (.NET, ASP.NET).</li>
+              <li>Front-end con HTML, CSS, JavaScript e AngularJS.</li>
+              <li>Query e modellazione dati con MySQL e SQL Server.</li>
+              <li>Utilizzo di AWS e metodologie agili / a cascata.</li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill">Java</span>
+              <span class="pill">C#</span>
+              <span class="pill">AngularJS</span>
+              <span class="pill">SQL</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Esperienza</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Sviluppatore Java · GolemNet</div>
+              <div class="card-meta">lug 2024 – gen 2025 · Palmi (RC)</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Sviluppo di applicativi back-end per la Pubblica Amministrazione con Java, Spring Boot e Jmix.</li>
+              <li>Gestione persistenza dati con JPA/Hibernate e PostgreSQL.</li>
+              <li>Versionamento del codice con Git/GitHub e utilizzo di Docker/Kubernetes.</li>
+              <li>Partecipazione alle attività di analisi, stima e documentazione tecnica.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Sviluppatore software (.NET) · eWork</div>
+              <div class="card-meta">gen 2024 · Da remoto</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Sviluppo di una web app di food delivery in C# e ASP.NET MVC.</li>
+              <li>Progettazione e gestione del database con SQL Server.</li>
+              <li>Accesso ai dati tramite Entity Framework.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Full Stack Developer – Stage · NTT DATA Italia</div>
+              <div class="card-meta">mar 2023 – ago 2023 · Rende (CS)</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <ul>
+              <li>Sviluppo backend in Java (Spring, Java EE) e C# (ASP.NET, ASP.NET MVC).</li>
+              <li>Implementazione di servizi REST e interfacce web con HTML, CSS, JavaScript, AngularJS.</li>
+              <li>Interazione con database MySQL e SQL Server.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Competenze</h2>
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="card-title">Competenze tecniche</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>Linguaggi:</strong> Java, C#, SQL, JavaScript, Python (scripting / ML).</li>
+              <li><strong>Framework:</strong> Spring / Spring Boot, Jmix, Java EE, .NET, ASP.NET, ASP.NET MVC, Web API, Entity Framework.</li>
+              <li><strong>Web & DB:</strong> REST API, HTML, CSS, SQL Server, MySQL, PostgreSQL, MongoDB.</li>
+              <li><strong>DevOps & strumenti:</strong> Git, GitHub, Azure DevOps, Docker, Eclipse, Visual Studio, SSMS.</li>
+              <li><strong>Networking & Cybersecurity:</strong> TCP/IP, modello OSI, reti wireless, networking Cisco base, security basics, OSINT, SIEM/log analysis (base), MITRE ATT&CK.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-title">Competenze trasversali</div>
+          <div class="card-body">
+            <ul>
+              <li>Problem solving e approccio analitico.</li>
+              <li>Capacità di lavorare in team e comunicare con diverse figure.</li>
+              <li>Autonomia nello studio e aggiornamento continuo.</li>
+              <li>Gestione del tempo e delle priorità.</li>
+              <li>Attenzione ai dettagli e alla qualità del codice.</li>
+              <li>Flessibilità e adattabilità a nuovi contesti e tecnologie.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contatti</h2>
+      <p class="section-subtitle">
+        Per opportunità lavorative, collaborazioni o semplicemente per fare due chiacchiere sul mondo dev.
+      </p>
+      <div class="card">
+        <div class="card-body">
+          <p><strong>Base:</strong> Castrovillari (CS), Italia</p>
+          <p><strong>Email:</strong> <a href="mailto:giuseppe.roberti9950@gmail.com">giuseppe.roberti9950@gmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/giuseppe-roberti-a8b729243/" target="_blank" rel="noopener noreferrer">/giuseppe-roberti-a8b729243</a></p>
+          <p><strong>GitHub:</strong> <a href="https://github.com/Nefaryan" target="_blank" rel="noopener noreferrer">https://github.com/Nefaryan</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year">2025</span> · Portfolio di Giuseppe Roberti
+  </footer>
+
+  <script>
+    // aggiorna automaticamente l'anno in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
